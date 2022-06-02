@@ -10,7 +10,7 @@ blue='\e[1;34m' 	# blue
 yellow='\e[1;33m'   # yellow
 nc='\e[0m' 		# normal  
 
-EXCEPTIONS='|jenkins|rzhang|ubuntu|sync'
+EXCEPTIONS='|jenkins|rzhang|ubuntu|sync|tomcat|developer'
 
 # clean the screen
 clear 

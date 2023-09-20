@@ -40,12 +40,25 @@ function REPLACE(){
 
 function RESTART(){
   echo -e "[${green} Update:  service status... ${nc}]"
+  # 保存原来的 LESS 环境变量值
+  original_less="$LESS"
+  # 禁用分页功能
+  export LESS="-FX"
   /bin/systemctl status ${SERVICE_NAME}
+  # 恢复分页功能
+  export LESS="$original_less"
+  
   echo -e "[${green} Update:  restart service.. ${nc}]"
   /bin/systemctl restart ${SERVICE_NAME}
   echo -e "[${green} Update:  service status... ${nc}]"
+  
+  # 保存原来的 LESS 环境变量值
+  original_less="$LESS"
+  # 禁用分页功能
+  export LESS="-FX"
   /bin/systemctl status ${SERVICE_NAME}
-
+  # 恢复分页功能
+  export LESS="$original_less"
 }
 
 

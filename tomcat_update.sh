@@ -45,17 +45,11 @@ function RESTART(){
   # 禁用分页功能
   export LESS="-FX"
   /bin/systemctl status ${SERVICE_NAME}
-  # 恢复分页功能
-  export LESS="$original_less"
   
   echo -e "[${green} Update:  restart service.. ${nc}]"
   /bin/systemctl restart ${SERVICE_NAME}
   echo -e "[${green} Update:  service status... ${nc}]"
   
-  # 保存原来的 LESS 环境变量值
-  original_less="$LESS"
-  # 禁用分页功能
-  export LESS="-FX"
   /bin/systemctl status ${SERVICE_NAME}
   # 恢复分页功能
   export LESS="$original_less"
@@ -102,7 +96,7 @@ cat << EOF
 ================================================================================
 This script will help you update the specific tomcat version.
 				author	:   Alliot    
-        date    :   2023-07-05
+        date    :   2023-09-20
 
 	     CURRENT USER:   $USER 
 	     CURRENT HOST:   $HOSTNAME

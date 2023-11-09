@@ -10,3 +10,7 @@ bash -c "$(curl https://raw.githubusercontent.com/alliot-15333a34211/tmp/main/li
 ``` shell 
 bash -c "$(curl https://raw.githubusercontent.com/alliot-15333a34211/tmp/main/tomcat_update.sh)"
 ```
+
+``` shell 
+bash -c "$(curl https://raw.githubusercontent.com/alliot-15333a34211/tmp/main/sftp.sh)"
+```

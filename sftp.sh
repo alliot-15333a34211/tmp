@@ -16,11 +16,17 @@ function ADDUSER(){
   echo -e "[${green} echo "data path: /opt/sftp/$USERNAME" ${nc}]"
   
   useradd -g sftp -s /sbin/nologin $USERNAME ||exit 1
-  echo $PASSWORD | passwd --stdin $USERNAME  ||exit 1
+  # echo $PASSWORD | passwd --stdin $USERNAME 
+  echo $USERNAME:$PASSWORD|chpasswd ||exit 1
   mkdir /opt/sftp/$USERNAME  ||exit 1
   chmod 0755 /opt/sftp/$USERNAME  ||exit 1
   chown root:sftp /opt/sftp/$USERNAME  ||exit 1
-  
+  mkdir /opt/sftp/$USERNAME/inbound
+  mkdir /opt/sftp/$USERNAME/onbound 
+  chmod 775 /opt/sftp/$USERNAME/inbound
+  chmod 775 /opt/sftp/$USERNAME/onbound
+  chown tomcat:sftp /opt/sftp/$USERNAME/inbound
+  chown tomcat:sftp /opt/sftp/$USERNAME/onbound
 }
 
 function main(){
